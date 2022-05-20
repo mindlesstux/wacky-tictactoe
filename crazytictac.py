@@ -1,10 +1,13 @@
 
 class game:
     def __init__(self, boardwidth, boardheight):
+        self.setup(boardheight=boardheight, boardwidth=boardwidth)
+        self.rowId = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    def setup(self, boardwidth=3, boardheight=3):
         self.boardwidth = boardwidth
         self.boardheight = boardheight
         self.board = [ [ " " * self.boardwidth ] * self.boardheight ]
-        self.rowId = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         self.won = False
 
     def checkWin(self):
@@ -12,7 +15,7 @@ class game:
 
     def printBoard(self):
         print()
-        
+
         rowstr = ""
         for rows in self.board:
             for idxRow, row in enumerate(rows, start=1):
